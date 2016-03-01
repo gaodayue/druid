@@ -19,31 +19,47 @@
 
 package io.druid.firehose.cloudfiles;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.fasterxml.jackson.databind.Module;
-import com.fasterxml.jackson.databind.jsontype.NamedType;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.google.common.collect.ImmutableList;
-import com.google.inject.Binder;
+import javax.validation.constraints.NotNull;
 
-import io.druid.initialization.DruidModule;
-
-public class CloudFilesFirehoseDruidModule implements DruidModule
+public class CloudFilesBlob
 {
+  @JsonProperty
+  @NotNull
+  private String container = null;
 
-	@Override
-	public List<? extends Module> getJacksonModules()
-	{
-		return ImmutableList.of(
-		    new SimpleModule().registerSubtypes(
-		        new NamedType(StaticCloudFilesFirehoseFactory.class, "static-cloudfiles")));
-	}
+  @JsonProperty
+  @NotNull
+  private String path = null;
 
-	@Override
-	public void configure(Binder arg0)
-	{
+  @JsonProperty
+  @NotNull
+  private String region = null;
 
-	}
+  public CloudFilesBlob()
+  {
+  }
 
+  public CloudFilesBlob(String container, String path, String region)
+  {
+    this.container = container;
+    this.path = path;
+    this.region = region;
+  }
+
+  public String getContainer()
+  {
+    return container;
+  }
+
+  public String getPath()
+  {
+    return path;
+  }
+
+  public String getRegion()
+  {
+    return region;
+  }
 }

@@ -85,8 +85,9 @@
 
 ## Development
   * [Overview](../development/overview.html)
-  * [Libraries](../development/libraries.html)
+  * [Libraries](../development/libraries.html)  
   * [Extending Druid](../development/modules.html)
+  * [Available Modules](../development/extensions.html)
   * [Build From Source](../development/build.html)
   * [Versioning](../development/versioning.html)
   * [Integration](../development/integrating-druid-with-other-technologies.html)
